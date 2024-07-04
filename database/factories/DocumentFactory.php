@@ -41,4 +41,11 @@ class DocumentFactory extends Factory
             'expires_at' => Carbon::now()->addDays(rand(-90, 90)),
         ];
     }
+
+    public function withExpiringSoon(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'expires_at' => Carbon::now()->addDays(rand(2, 6)),
+        ]);
+    }
 }
